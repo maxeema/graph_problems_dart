@@ -3,19 +3,17 @@ import 'package:test/test.dart';
 
 void main() {
   for (final entry in _data) {
-    for (final (src: src, dst: dst, hasPath: hasPath) in entry.scenarios) {
+    for (final (:src, :dst, :hasPath) in entry.cases) {
       test(
         'undirected path "${entry.id}" "$src - $dst" has path $hasPath',
         () {
-          final result = undirectedPath(entry.edges, src, dst);
-          expect(result, hasPath);
+          expect(undirectedPath(entry.edges, src, dst), hasPath);
         },
       );
       test(
         'undirected path recursive "${entry.id}" "$src - $dst" has path $hasPath',
         () {
-          final result = undirectedPathRecursive(entry.edges, src, dst);
-          expect(result, hasPath);
+          expect(undirectedPathRecursive(entry.edges, src, dst), hasPath);
         },
       );
     }
@@ -25,7 +23,7 @@ void main() {
 const _data = {
   (
     id: 'edges-1',
-    scenarios: [
+    cases: [
       (src: 'j', dst: 'm', hasPath: true),
       (src: 'm', dst: 'j', hasPath: true),
       (src: 'n', dst: 'o', hasPath: true),
@@ -44,7 +42,7 @@ const _data = {
   ),
   (
     id: 'edges-2',
-    scenarios: [
+    cases: [
       (src: 'a', dst: 'b', hasPath: true),
       (src: 'a', dst: 'c', hasPath: true),
       (src: 'r', dst: 't', hasPath: true),
@@ -62,7 +60,7 @@ const _data = {
   ),
   (
     id: 'edges-3',
-    scenarios: [
+    cases: [
       (src: 'r', dst: 't', hasPath: true),
       (src: 't', dst: 's', hasPath: true),
     ],

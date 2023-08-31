@@ -3,9 +3,8 @@ import 'package:test/test.dart';
 
 void main() {
   for (final entry in _data) {
-    var (id: id, largestComponent: largest, graph: graph) = entry;
-    test('largest component of "$id" is $largest', () {
-      expect(largestComponent(graph), largest);
+    test('largest component of "${entry.id}" is ${entry.largestComponent}', () {
+      expect(largestComponent(entry.graph), entry.largestComponent);
     });
   }
 }

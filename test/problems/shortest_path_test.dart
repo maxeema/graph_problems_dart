@@ -5,10 +5,10 @@ import 'package:test/test.dart';
 void main() {
   for (final entry in _data) {
     final graph = mapEdgesToGraph(entry.edges);
-    for (final (src: src, dst: dst, edgesCount: length) in entry.scenarios) {
-      test('shortest path of "${entry.id}" "$src - $dst" is $length', () {
+    for (final (:src, :dst, :edgesCount) in entry.cases) {
+      test('shortest path of "${entry.id}" "$src - $dst" is $edgesCount', () {
         final result = findShortestPath(graph, src, dst);
-        expect(result?.edgesCount, length);
+        expect(result?.edgesCount, edgesCount);
       });
     }
   }
@@ -16,12 +16,12 @@ void main() {
 
 const _data = <({
   String id,
-  List<({String dst, int? edgesCount, String src})> scenarios,
+  List<({String dst, int? edgesCount, String src})> cases,
   List<List<String>> edges
 })>{
   (
     id: 'edges-0',
-    scenarios: [
+    cases: [
       (src: 'w', dst: 'z', edgesCount: 2),
     ],
     edges: [
@@ -34,7 +34,7 @@ const _data = <({
   ),
   (
     id: 'edges-1',
-    scenarios: [
+    cases: [
       (src: 'y', dst: 'x', edgesCount: 1),
     ],
     edges: [
@@ -47,7 +47,7 @@ const _data = <({
   ),
   (
     id: 'edges-2',
-    scenarios: [
+    cases: [
       (src: 'a', dst: 'e', edgesCount: 3),
     ],
     edges: [
@@ -62,7 +62,7 @@ const _data = <({
   ),
   (
     id: 'edges-3',
-    scenarios: [
+    cases: [
       (src: 'e', dst: 'c', edgesCount: 2),
     ],
     edges: [
@@ -77,7 +77,7 @@ const _data = <({
   ),
   (
     id: 'edges-4',
-    scenarios: [
+    cases: [
       (src: 'b', dst: 'g', edgesCount: null),
     ],
     edges: [
@@ -92,7 +92,7 @@ const _data = <({
   ),
   (
     id: 'edges-5',
-    scenarios: [
+    cases: [
       (src: 'w', dst: 'e', edgesCount: 1),
     ],
     edges: [
@@ -105,7 +105,7 @@ const _data = <({
   ),
   (
     id: 'edges-6',
-    scenarios: [
+    cases: [
       (src: 'n', dst: 'e', edgesCount: 2),
     ],
     edges: [
@@ -118,7 +118,7 @@ const _data = <({
   ),
   (
     id: 'edges-7',
-    scenarios: [
+    cases: [
       (src: 'm', dst: 's', edgesCount: 6),
     ],
     edges: [
@@ -133,7 +133,7 @@ const _data = <({
   ),
   (
     id: 'edges-8',
-    scenarios: [
+    cases: [
       (src: 'w', dst: 'a', edgesCount: 3),
     ],
     edges: [

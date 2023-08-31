@@ -1,6 +1,6 @@
 name: graph_problems_dart
 description: Solved some graph problems utilizing the Dart language.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/maxeema/graph_problems_dart
 
 environment:

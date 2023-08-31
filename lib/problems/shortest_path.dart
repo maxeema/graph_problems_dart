@@ -23,7 +23,7 @@ import 'dart:collection';
   ]);
   final visited = <T>{};
   do {
-    var (node: cur, depth: depth, path: path) = queue.removeFirst();
+    var (node: cur, :depth, :path) = queue.removeFirst();
     // print('cur: $cur, depth: $depth, queue: $queue, visited: $visited');
     visited.add(cur);
     final neighbors = graph[cur]!;

@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   for (final entry in _data) {
-    var (id: id, connectedComponentsCount: count, graph: graph) = entry;
+    var (:id, connectedComponentsCount: count, :graph) = entry;
     test('connected components count of "$id" is $count', () {
       expect(connectedComponentsCount(graph), count);
     });
